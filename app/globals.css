@@ -80,3 +80,8 @@ body {
 }
 
 .divider { border-top: 1px solid var(--border); }
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.55; transform: translateX(-50%) scale(1); }
+  50%       { opacity: 0.9;  transform: translateX(-50%) scale(1.12); }
+}
