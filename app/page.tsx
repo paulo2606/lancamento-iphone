@@ -3,7 +3,7 @@ import HeroSection from "@/components/HeroSection";
 
 export default function Home() {
   return (
-    <main className="bg-black">
+    <main className="bg-white">
       <Navbar />
       <HeroSection />
     </main>
