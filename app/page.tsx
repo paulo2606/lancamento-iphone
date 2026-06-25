@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import ModelsSection from "@/components/ModelsSection";
 import CameraSection from "@/components/CameraSection";
 import DisplaySection from "@/components/DisplaySection";
+import BatterySection from "@/components/BatterySection";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <ModelsSection />
       <CameraSection />
       <DisplaySection />
+      <BatterySection />
     </main>
   );
 }
