@@ -5,6 +5,7 @@ import CameraSection from "@/components/CameraSection";
 import GallerySection from "@/components/GallerySection";
 import DisplaySection from "@/components/DisplaySection";
 import BatterySection from "@/components/BatterySection";
+import SpecsSection from "@/components/SpecsSection";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <GallerySection />
       <DisplaySection />
       <BatterySection />
+      <SpecsSection />
     </main>
   );
 }
