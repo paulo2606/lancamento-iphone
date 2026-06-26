@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useIsMobile } from "@/lib/useIsMobile";
 
 const ACTIVITIES = [
   {
@@ -185,6 +186,7 @@ export default function BatterySection() {
   const [visible, setVisible] = useState(false);
   const [labelVisible, setLabelVisible] = useState(false);
   const hours = useCounter(26, visible, 600);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -393,7 +395,7 @@ export default function BatterySection() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(260px, 1fr))",
             gap: "12px",
           }}
         >

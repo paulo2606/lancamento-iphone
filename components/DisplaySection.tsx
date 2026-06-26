@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { useIsMobile } from "@/lib/useIsMobile";
 
 const STATS = [
   { value: 460,  suffix: "",   unit: "PPI",   desc: "pixels por polegada" },
@@ -152,10 +153,14 @@ function FeatureCard({
   feat,
   index,
   visible,
+  isMobile,
+  total,
 }: {
   feat: (typeof FEATURES)[0];
   index: number;
   visible: boolean;
+  isMobile: boolean;
+  total: number;
 }) {
   const [hovered, setHovered] = useState(false);
   const [entered, setEntered] = useState(false);
@@ -183,8 +188,11 @@ function FeatureCard({
         cursor: "default",
         overflow: "hidden",
         background: hovered ? "#161616" : "#0e0e0e",
-        borderRadius:
-          index === 0 ? "23px 0 0 0"
+        borderRadius: isMobile
+          ? index === 0 ? "23px 23px 0 0"
+          : index === total - 1 ? "0 0 23px 23px"
+          : "0"
+          : index === 0 ? "23px 0 0 0"
           : index === 2 ? "0 23px 0 0"
           : index === 3 ? "0 0 0 23px"
           : index === 5 ? "0 0 23px 0"
@@ -277,6 +285,7 @@ function FeatureCard({
 export default function DisplaySection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -399,8 +408,8 @@ export default function DisplaySection() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "24px",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+            gap: isMobile ? "40px" : "24px",
             marginTop: "72px",
           }}
         >
@@ -423,14 +432,14 @@ export default function DisplaySection() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
             gap: "1px",
             background: "rgba(255,255,255,0.06)",
             borderRadius: "24px",
           }}
         >
           {FEATURES.map((feat, i) => (
-            <FeatureCard key={feat.title} feat={feat} index={i} visible={visible} />
+            <FeatureCard key={feat.title} feat={feat} index={i} visible={visible} isMobile={isMobile} total={FEATURES.length} />
           ))}
         </div>
 

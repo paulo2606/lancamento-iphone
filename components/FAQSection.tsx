@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useIsMobile } from "@/lib/useIsMobile";
 
 const FAQS = [
   {
@@ -177,6 +178,7 @@ export default function FAQSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -201,15 +203,15 @@ export default function FAQSection() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 2fr",
-            gap: "48px",
+            gridTemplateColumns: isMobile ? "1fr" : "1fr 2fr",
+            gap: isMobile ? "32px" : "48px",
             alignItems: "start",
           }}
         >
-          {/* Sticky left title */}
+          {/* Title */}
           <div
             style={{
-              position: "sticky",
+              position: isMobile ? "static" : "sticky",
               top: "80px",
               opacity: visible ? 1 : 0,
               transform: visible ? "translateY(0)" : "translateY(20px)",
