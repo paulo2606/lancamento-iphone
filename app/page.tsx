@@ -6,6 +6,8 @@ import GallerySection from "@/components/GallerySection";
 import DisplaySection from "@/components/DisplaySection";
 import BatterySection from "@/components/BatterySection";
 import SpecsSection from "@/components/SpecsSection";
+import FAQSection from "@/components/FAQSection";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -18,6 +20,8 @@ export default function Home() {
       <DisplaySection />
       <BatterySection />
       <SpecsSection />
+      <FAQSection />
+      <Footer />
     </main>
   );
 }
