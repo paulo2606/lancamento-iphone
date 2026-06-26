@@ -286,22 +286,23 @@ export default function SpecsSection() {
             transition: "opacity 0.6s ease 1.2s",
           }}
         >
-          <button
+          <a
+            href="https://www.apple.com/br/shop/buy-iphone"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-orange"
             style={{
+              display: "inline-block",
               padding: "14px 40px",
               borderRadius: "980px",
               fontSize: "15px",
               fontWeight: 600,
-              cursor: "pointer",
-              border: "none",
               letterSpacing: "0.01em",
+              textDecoration: "none",
             }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = "scale(1.04)"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = "scale(1)"; }}
           >
             Comprar iPhone 17
-          </button>
+          </a>
         </div>
 
       </div>

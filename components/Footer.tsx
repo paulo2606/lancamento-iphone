@@ -180,23 +180,23 @@ export default function Footer() {
               flexWrap: "wrap",
             }}
           >
-            <button
+            <a
+              href="https://www.apple.com/br/shop/buy-iphone"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-orange"
               style={{
+                display: "inline-block",
                 padding: "14px 32px",
                 borderRadius: "980px",
                 fontSize: "15px",
                 fontWeight: 600,
-                cursor: "pointer",
-                border: "none",
                 letterSpacing: "0.01em",
-                transition: "transform 0.2s ease, background 0.25s ease",
+                textDecoration: "none",
               }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = "scale(1.04)"; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = "scale(1)"; }}
             >
               Comprar agora
-            </button>
+            </a>
             <button
               style={{
                 padding: "14px 32px",
@@ -262,6 +262,7 @@ export default function Footer() {
                   <li key={item}>
                     <a
                       href="#"
+                      onClick={(e) => e.preventDefault()}
                       style={{
                         fontSize: "12px",
                         color: "#86868b",
@@ -330,6 +331,7 @@ export default function Footer() {
                 <a
                   key={link}
                   href="#"
+                  onClick={(e) => e.preventDefault()}
                   style={{
                     fontSize: "11px",
                     color: "#515154",

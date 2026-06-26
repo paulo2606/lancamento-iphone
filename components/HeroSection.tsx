@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import BlobBackground from "./BlobBackground";
+import { smoothScroll } from "@/lib/smoothScroll";
 
 export default function HeroSection() {
   const [visible, setVisible] = useState(false);
@@ -44,9 +45,13 @@ export default function HeroSection() {
         style={{ background: "rgba(245,245,247,0.85)", color: "#1d1d1f", zIndex: 2 }}
       >
         iPhone 17 Pro Max disponível agora.{" "}
-        <a href="#models" className="underline" style={{ color: "#e8622a" }}>
+        <button
+          onClick={() => smoothScroll("models")}
+          className="underline"
+          style={{ color: "#e8622a", background: "none", border: "none", cursor: "pointer", font: "inherit", padding: 0 }}
+        >
           Ver modelos →
-        </a>
+        </button>
       </div>
 
       {/* Main content */}
@@ -90,17 +95,19 @@ export default function HeroSection() {
           style={fade(0.35)}
         >
           <a
-            href="#models"
+            href="https://www.apple.com/br/shop/buy-iphone"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-orange text-sm font-semibold px-7 py-3 rounded-full"
           >
             Comprar
           </a>
-          <a
-            href="#camera"
+          <button
+            onClick={() => smoothScroll("camera")}
             className="btn-ghost text-sm font-semibold px-7 py-3 rounded-full"
           >
             Saiba mais
-          </a>
+          </button>
         </div>
 
         {/* Hero image */}

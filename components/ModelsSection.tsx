@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { smoothScroll } from "@/lib/smoothScroll";
 
 type Model = {
   id: string;
@@ -224,7 +225,9 @@ function ModelCard({
 
       {/* CTAs */}
       <a
-        href="#"
+        href="https://www.apple.com/br/shop/buy-iphone"
+        target="_blank"
+        rel="noopener noreferrer"
         className="btn-orange"
         style={{
           display: "block",
@@ -239,20 +242,25 @@ function ModelCard({
       >
         Comprar
       </a>
-      <a
-        href="#"
+      <button
+        onClick={() => smoothScroll("specs")}
         style={{
           display: "block",
+          width: "100%",
           fontSize: "13px",
           fontWeight: 500,
           color: "#e8622a",
-          textDecoration: "none",
+          background: "none",
+          border: "none",
+          cursor: "pointer",
           marginTop: "10px",
           letterSpacing: "0.01em",
+          textAlign: "center",
+          padding: 0,
         }}
       >
-        Saiba mais &rsaquo;
-      </a>
+        Saiba mais ›
+      </button>
     </div>
   );
 }
@@ -344,19 +352,21 @@ export default function ModelsSection() {
             transition: "opacity 0.7s ease 0.6s",
           }}
         >
-          <a
-            href="#"
+          <button
+            onClick={() => smoothScroll("specs")}
             style={{
               fontSize: "14px",
               fontWeight: 500,
               color: "#e8622a",
-              textDecoration: "none",
+              background: "none",
+              border: "none",
               borderBottom: "1px solid rgba(232,98,42,0.35)",
               paddingBottom: "1px",
+              cursor: "pointer",
             }}
           >
-            Comparar todos os modelos &rsaquo;
-          </a>
+            Comparar todos os modelos ›
+          </button>
         </div>
       </div>
     </section>
